@@ -1,4 +1,7 @@
 {
+  "rewrites": [
+    { "source": "/api/generate", "destination": "/index.js" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
