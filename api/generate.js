@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
     const apiKey = process.env.OPENAI_API_KEY;
     if (!apiKey)
-      return res.status(500).json({ error: 'OPENAI_API_KEY not configured in Vercel environment.' });
+      return res.status(500).json({ error: 'OPENAI_API_KEY not configured.' });
 
     const r = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -20,7 +20,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: 'gpt-4o-mini',
         max_tokens: 450,
-        temperature: 0.8,
+        temperature: 0.75,
         presence_penalty: 0.3,
         messages: [
           { role: 'system', content: systemPrompt },
@@ -31,8 +31,10 @@ export default async function handler(req, res) {
 
     const data = await r.json();
     if (!r.ok) return res.status(r.status).json({ error: 'OpenAI: ' + (data.error?.message || 'unknown') });
+
     const reply = data.choices?.[0]?.message?.content?.trim();
     if (!reply) return res.status(500).json({ error: 'Empty response from OpenAI.' });
+
     return res.status(200).json({ reply });
   } catch(e) {
     return res.status(500).json({ error: 'Server error: ' + e.message });
