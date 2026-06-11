@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — AI.Reply</title>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Google Sans',-apple-system,sans-serif;background:#fff;color:#3c4043;max-width:740px;margin:0 auto;padding:48px 28px 60px;line-height:1.75;}
+.logo{font-size:22px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px;}
+.b1{color:#1a73e8;}.b2{color:#7b1fa2;}
+.meta{font-size:13px;color:#80868b;margin-bottom:40px;}
+h1{font-size:28px;font-weight:700;color:#202124;margin-bottom:10px;}
+h2{font-size:16px;font-weight:700;color:#202124;margin:32px 0 10px;padding-top:4px;border-top:1px solid #f1f3f4;}
+p{font-size:14px;color:#5f6368;margin-bottom:12px;}
+.card{background:#f8f9fa;border:1px solid #e8eaed;border-radius:10px;padding:18px 20px;margin:8px 0 20px;}
+.card p{margin:0;color:#3c4043;}
+.tag{display:inline-block;background:#e8f0fe;color:#1a73e8;font-size:11px;font-weight:700;padding:2px 9px;border-radius:4px;margin-bottom:8px;letter-spacing:0.3px;}
+.tag.green{background:#e6f4ea;color:#137333;}
+.tag.red{background:#fce8e6;color:#c5221f;}
+.tag.purple{background:#f3e5f5;color:#6a0dad;}
+hr{border:none;border-top:1px solid #e8eaed;margin:36px 0;}
+footer{font-size:12px;color:#9aa0a6;margin-top:44px;padding-top:20px;border-top:1px solid #f1f3f4;}
+a{color:#1a73e8;}
+</style>
+</head>
+<body>
+<div class="logo"><span class="b1">AI.</span><span class="b2">Reply</span></div>
+<div class="meta">Privacy Policy &nbsp;·&nbsp; Effective: May 2026 &nbsp;·&nbsp; Version 2.0</div>
+
+<h1>Privacy Policy</h1>
+<p>AI.Reply is built on a foundation of strict data minimization and user privacy. This document explains exactly what data is accessed, how it flows, and what is never stored — in plain language.</p>
+
+<hr>
+
+<h2>1. Data Minimization Policy</h2>
+<div class="tag green">GDPR COMPLIANT</div>
+<div class="card">
+  <p>AI.Reply only accesses email text on the active browser tab when the user <strong>explicitly interacts</strong> with the generation toolbar buttons. The extension is entirely dormant and performs zero background scanning, indexing, or passive data collection at any other time. Nothing is read unless you click a button.</p>
+</div>
+
+<h2>2. What Data Is Processed</h2>
+<div class="tag">LIMITED SCOPE</div>
+<div class="card">
+  <p>When you click a generation button, AI.Reply reads the text content of the currently open Gmail email thread — specifically the latest incoming message and prior thread context visible in your browser tab. It also reads your Gmail display name solely to personalize the reply signature (e.g., "Best regards, AI.Reply"). No other browser data, cookies, history, or account credentials are ever accessed.</p>
+</div>
+
+<h2>3. Transmission Security</h2>
+<div class="tag green">HTTPS ENCRYPTED</div>
+<div class="card">
+  <p>All processed data is transmitted securely via encrypted HTTPS/TLS 1.2+ protocols to our privacy-compliant proxy endpoint hosted on Vercel. The proxy appends the LLM API key server-side (stored as an environment variable, never in the extension) and forwards only the prompt payload to OpenAI. No data travels over unencrypted channels at any stage.</p>
+</div>
+
+<h2>4. Zero-Retention Architecture</h2>
+<div class="tag red">NO STORAGE</div>
+<div class="card">
+  <p>AI.Reply operates on a fully stateless, zero-retention architecture. Email content, thread history, sender names, your display name, and any generated reply text are processed entirely in real-time and permanently discarded the moment a response is returned. Nothing is logged, cached, stored in a database, or retained on any server. Each generation request is independent and leaves no trace.</p>
+</div>
+
+<h2>5. Third-Party Data Disclaimer</h2>
+<div class="tag purple">LIMITED USE</div>
+<div class="card">
+  <p>Email text context is passed exclusively to OpenAI's API for real-time inference. This data is strictly governed by <a href="https://openai.com/policies/privacy-policy" target="_blank">OpenAI's Privacy Policy</a> and their data processing agreements. AI.Reply does not share user data with advertisers, analytics platforms, data brokers, or any other third parties. Email content is never used to train AI models.</p>
+</div>
+
+<h2>6. Chrome Extension Permissions</h2>
+<div class="card">
+  <p><strong>activeTab</strong> — Allows reading the text content of the currently active Gmail tab when you click a button. Cannot access any other tabs, windows, or browser history.<br><br>
+  <strong>host_permissions: mail.google.com</strong> — Required to inject the AI.Reply toolbar UI into the Gmail interface. No other websites are accessed or modified.<br><br>
+  <strong>host_permissions: aireply-backend.vercel.app</strong> — Required for the background service worker to securely transmit prompts to our proxy endpoint. No other external URLs are contacted.</p>
+</div>
+
+<h2>7. No Account, No Sign-In Required</h2>
+<p>AI.Reply does not require account creation, email registration, sign-in, or any personal information. There is no user database. The extension works entirely within your local browser session.</p>
+
+<h2>8. Children's Privacy</h2>
+<p>AI.Reply is not directed at children under the age of 13. We do not knowingly process data from children. If you believe a child has used this extension, please contact us immediately.</p>
+
+<h2>9. Changes to This Policy</h2>
+<p>We may update this Privacy Policy periodically. The "Effective" date at the top reflects the most recent version. Continued use of AI.Reply after changes are published constitutes acceptance of the updated terms.</p>
+
+<h2>10. Contact & Data Requests</h2>
+<p>For privacy questions, data deletion requests, or concerns, contact us at: <a href="mailto:support.ai.reply@gmail.com">support.ai.reply@gmail.com</a></p>
+
+<hr>
+<footer>© 2026 AI.Reply. All rights reserved. AI.Reply is an independent product and is not affiliated with, endorsed by, or sponsored by Google LLC or Alphabet Inc. Gmail is a trademark of Google LLC.</footer>
+</body>
+</html>
