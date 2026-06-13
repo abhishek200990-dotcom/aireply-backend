@@ -35,7 +35,10 @@ module.exports = async (req, res) => {
       body: JSON.stringify({
         model: 'gpt-4o-mini',
         max_tokens: 350,
-        temperature: 0.7,
+        temperature: 0.95,
+        top_p: 0.95,
+        presence_penalty: 0.4,
+        frequency_penalty: 0.3,
         messages: [
           { role: 'system', content: String(systemPrompt).slice(0, 4000) },
           { role: 'user', content: userContent }
