@@ -34,8 +34,8 @@ module.exports = async (req, res) => {
       },
       body: JSON.stringify({
         model: 'gpt-4o-mini',
-        max_tokens: 350,
-        temperature: 0.95,
+        max_tokens: 280,
+        temperature: 0.9,
         top_p: 0.95,
         presence_penalty: 0.4,
         frequency_penalty: 0.3,
