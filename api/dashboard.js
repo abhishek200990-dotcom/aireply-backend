@@ -52,6 +52,16 @@ module.exports = async (req, res) => {
     const reportsRaw = (await redis('LRANGE', 'reports', 0, 49)) || [];
     const reports = reportsRaw.map(r => { try { return JSON.parse(r); } catch (e) { return null; } }).filter(Boolean);
 
+    // Razorpay payments
+    const payRaw = (await redis('LRANGE', 'payments', 0, 49)) || [];
+    const payments = payRaw.map(r => { try { return JSON.parse(r); } catch (e) { return null; } }).filter(Boolean);
+    const payRows = payments.length ? payments.map(p => `<tr>
+      <td>${ago(p.activated)}</td>
+      <td>${esc(p.plan)}</td>
+      <td>${esc(p.email) || '\u2014'}</td>
+      <td>${p.device ? '<span class=ok>linked</span>' : '<span class=exp>no device</span>'}</td>
+      <td class=mono>${esc(p.payId)}</td></tr>`).join('') : '<tr><td colspan=5 class=empty>No payments yet</td></tr>';
+
     const subRows = subs.length ? subs.map(s => `<tr>
       <td>${esc(s.plan)}</td>
       <td>${new Date(s.activated).toLocaleDateString('en-IN')}</td>
@@ -101,6 +111,8 @@ td{padding:9px 12px;border-top:1px solid #f1edf9;font-size:13px;}
 </div>
 <h2>💳 Subscribers</h2>
 <table><tr><th>Plan</th><th>Activated</th><th>Expires</th><th>Status</th><th>Device</th><th>Code</th></tr>${subRows}</table>
+<h2>💰 Razorpay payments</h2>
+<table><tr><th>When</th><th>Plan</th><th>Email</th><th>Device</th><th>Payment ID</th></tr>${payRows}</table>
 <h2>📊 Usage today</h2>
 <table><tr><th>Device</th><th>Plan</th><th>Used</th><th>Last seen</th></tr>${useRows}</table>
 <h2>🛠️ Problem reports</h2>
