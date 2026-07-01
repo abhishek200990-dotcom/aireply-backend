@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI.Reply — AI Email Copilot for Gmail</title>
+<meta name="description" content="AI.Reply is a Chrome extension that writes context-aware email replies inside Gmail in one click."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--indigo:#4b5bdc;--violet:#8b5cf6;--ink:#17103a;--ink-soft:#5f6368;--line:#e8e6f2;--bg:#faf9fd;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Inter",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  a{color:var(--indigo);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  header{position:sticky;top:0;z-index:10;background:rgba(250,249,253,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav{max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .brand{font-family:"Sora";font-weight:800;font-size:19px;color:var(--ink);display:flex;align-items:center;gap:8px;}
+  .brand .sp{color:var(--violet);}
+  .navlinks{display:flex;gap:22px;font-size:14.5px;font-weight:600;color:var(--ink-soft);flex-wrap:wrap;}
+  .navlinks a{color:var(--ink-soft);}
+  .navlinks a:hover{color:var(--indigo);text-decoration:none;}
+  .cta-top{background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff !important;padding:9px 18px;border-radius:20px;font-weight:700;font-size:13.5px;}
+  .cta-top:hover{text-decoration:none;opacity:.92;}
+
+  .hero{max-width:960px;margin:0 auto;padding:64px 24px 40px;text-align:center;}
+  .hero h1{font-family:"Sora";font-weight:800;font-size:clamp(28px,5vw,42px);letter-spacing:-.02em;margin-bottom:14px;}
+  .hero p{font-size:17px;color:var(--ink-soft);max-width:600px;margin:0 auto 26px;}
+  .hero .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .btn{display:inline-block;padding:12px 26px;border-radius:24px;font-weight:700;font-size:14.5px;}
+  .btn-primary{background:linear-gradient(135deg,var(--indigo),var(--violet));color:#fff;}
+  .btn-primary:hover{text-decoration:none;opacity:.92;}
+  .btn-ghost{border:1.5px solid var(--line);color:var(--ink);}
+  .btn-ghost:hover{text-decoration:none;border-color:var(--indigo);}
+
+  section{max-width:760px;margin:0 auto;padding:38px 24px;border-top:1px solid var(--line);}
+  section h2{font-family:"Sora";font-weight:700;font-size:22px;margin-bottom:14px;letter-spacing:-.01em;}
+  section h3{font-family:"Sora";font-weight:700;font-size:16px;margin:20px 0 8px;}
+  section p, section li{font-size:15px;color:#2c2a3a;}
+  section ul{padding-left:20px;margin:8px 0;}
+  section li{margin-bottom:6px;}
+  .meta{font-size:13px;color:var(--ink-soft);margin-bottom:18px;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:10px;}
+  @media (max-width:600px){.grid{grid-template-columns:1fr;} .navlinks{gap:14px;font-size:13px;}}
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;}
+  .card h3{margin-top:0;font-size:15px;}
+  footer{max-width:960px;margin:0 auto;padding:30px 24px 50px;color:var(--ink-soft);font-size:13px;text-align:center;}
+  .pill{display:inline-block;background:#efeafb;color:var(--indigo);font-weight:700;font-size:12.5px;padding:4px 12px;border-radius:20px;margin-bottom:12px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand"><span class="sp">✦</span> AI.Reply</div>
+    <nav class="navlinks">
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#terms">Terms</a>
+      <a href="#refund">Refunds</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+    <a class="cta-top" href="https://chromewebstore.google.com/detail/aireply-your-one-click-em/ofgchkegobdcjigaiilenhhcfdkognnk" target="_blank" rel="noopener">Add to Chrome</a>
+  </div>
+</header>
+
+<div class="hero" id="home">
+  <div class="pill">Chrome Extension · SaaS</div>
+  <h1>AI.Reply — reply to any email in one click, inside Gmail.</h1>
+  <p>AI.Reply reads your emails, tags and summarizes them instantly, and writes ready-to-send replies in one click — Accept, Decline, Formal, or Instant. Free 30-day trial, no card needed.</p>
+  <div class="btns">
+    <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/aireply-your-one-click-em/ofgchkegobdcjigaiilenhhcfdkognnk" target="_blank" rel="noopener">Add to Chrome — Free</a>
+    <a class="btn btn-ghost" href="#about">Learn more</a>
+  </div>
+</div>
+
+<section id="about">
+  <h2>About AI.Reply</h2>
+  <p>AI.Reply is a browser-based software product (Chrome extension, Manifest V3) built and operated by an individual developer based in India. It integrates directly with Gmail to help professionals, freelancers, and small teams manage their inbox faster — auto-tagging emails, summarizing them in one line, and generating context-aware replies with a single click.</p>
+  <h3>Business Use-Case</h3>
+  <p>AI.Reply is a SaaS product distributed as a Chrome extension. We offer a freemium subscription: a free 30-day trial (50 AI replies/day) followed by a paid Pro plan (500 AI replies/day) billed monthly or annually. Customers are individual professionals worldwide who use Gmail for business or personal email correspondence.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>What it does</h3>
+      <ul>
+        <li>Auto-tags emails (Urgent, Finance, Meeting, Follow-up)</li>
+        <li>One-line AI summary per email</li>
+        <li>One-click replies in multiple tones</li>
+        <li>Guide AI — refine replies in plain English</li>
+        <li>Compose new emails from templates</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Who it's for</h3>
+      <ul>
+        <li>Freelancers &amp; consultants</li>
+        <li>Founders &amp; small business owners</li>
+        <li>Sales, support &amp; recruiting professionals</li>
+        <li>Anyone spending hours a day on email</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>We're reachable directly by email for support, billing, or business queries. We aim to respond within 1–2 business days.</p>
+  <ul>
+    <li><strong>Support email:</strong> <a href="mailto:support.ai.reply@gmail.com">support.ai.reply@gmail.com</a></li>
+    <li><strong>Product:</strong> AI.Reply — Chrome Extension</li>
+    <li><strong>Address:</strong> Futec Gateway, Noida, Uttar Pradesh, India</li>
+    <li><strong>Operating region:</strong> India (serving customers globally)</li>
+  </ul>
+</section>
+
+<section id="terms">
+  <h2>Terms &amp; Conditions</h2>
+  <p class="meta">Last updated: July 2026</p>
+  <p>By installing or using the AI.Reply Chrome extension ("the Service"), you agree to the following terms.</p>
+  <h3>1. The Service</h3>
+  <p>AI.Reply provides AI-generated email reply suggestions, summaries, and categorization inside Gmail. Free trial users receive 50 AI replies/day for 30 days; Pro subscribers receive 500 AI replies/day for the duration of their paid subscription.</p>
+  <h3>2. Subscriptions &amp; Billing</h3>
+  <p>Pro subscriptions are billed monthly (₹199) or annually (₹1,499) via Razorpay. Subscriptions renew automatically until cancelled. You may cancel at any time; access continues until the end of the current billing period.</p>
+  <h3>3. Acceptable Use</h3>
+  <p>You agree not to use the Service for unlawful purposes, to send spam, or to reverse-engineer, resell, or misuse the extension.</p>
+  <h3>4. AI-Generated Content</h3>
+  <p>Replies and summaries are generated by an AI model and may occasionally be inaccurate or require editing. You are responsible for reviewing content before sending.</p>
+  <h3>5. Limitation of Liability</h3>
+  <p>The Service is provided "as is." We are not liable for any indirect, incidental, or consequential damages arising from use of the Service, including but not limited to lost time, business, or data.</p>
+  <h3>6. Changes to Terms</h3>
+  <p>We may update these terms from time to time. Continued use of the Service after changes constitutes acceptance.</p>
+  <h3>7. Contact</h3>
+  <p>Questions about these terms: <a href="mailto:support.ai.reply@gmail.com">support.ai.reply@gmail.com</a></p>
+</section>
+
+<section id="refund">
+  <h2>Refund &amp; Cancellation Policy</h2>
+  <p class="meta">Last updated: July 2026</p>
+  <h3>Free Trial</h3>
+  <p>New users get a free 30-day trial with no card required. You can evaluate the Service fully before paying anything.</p>
+  <h3>Cancellations</h3>
+  <p>You may cancel your Pro subscription at any time. Cancellation stops future billing; you retain Pro access until the end of the period you've already paid for.</p>
+  <h3>Refunds</h3>
+  <p>Because a full 30-day free trial is provided before any payment, subscription payments are generally non-refundable once a billing period has started. If you believe you were charged in error, or experienced a technical issue that prevented you from using the Service, contact us within 7 days of the charge at <a href="mailto:support.ai.reply@gmail.com">support.ai.reply@gmail.com</a> and we will review your case individually.</p>
+  <h3>Processing Time</h3>
+  <p>Approved refunds are processed via Razorpay to the original payment method within 5–7 business days.</p>
+</section>
+
+<section id="delivery">
+  <h2>Delivery / Access Terms</h2>
+  <p class="meta">Last updated: July 2026</p>
+  <p>AI.Reply is digital software delivered electronically — there is no physical shipment.</p>
+  <ul>
+    <li><strong>Delivery method:</strong> Installed directly from the Chrome Web Store.</li>
+    <li><strong>Delivery time:</strong> Instant — the extension is available immediately after installation.</li>
+    <li><strong>Access activation:</strong> Free trial access begins immediately on install. Pro access is unlocked automatically within a few minutes of successful payment, matched to your Gmail address.</li>
+    <li><strong>Support:</strong> Available via email for installation or access issues.</li>
+  </ul>
+</section>
+
+<section id="privacy">
+  <h2>Privacy Policy</h2>
+  <p>Our full privacy policy, including what data we access and how it's used, is available here:</p>
+  <p><a href="https://aireply-backend.vercel.app/privacy.html" target="_blank" rel="noopener">aireply-backend.vercel.app/privacy.html</a></p>
+</section>
+
+<footer>
+  © 2026 AI.Reply. All rights reserved. · <a href="mailto:support.ai.reply@gmail.com">support.ai.reply@gmail.com</a>
+</footer>
+
+</body>
+</html>
